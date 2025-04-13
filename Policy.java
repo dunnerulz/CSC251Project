@@ -17,14 +17,15 @@ public class Policy
         policyCount++;
     }
 
+    // Replace the current toString() in Policy.java with this:
     @Override
-    public String toString(){
-        StringBuilder fields = new StringBuilder();
-        fields.append("Name: " + getPolicyNumber());
-        fields.append("Last Name: " + getProviderName());
-
-        return fields.toString();
-
+    public String toString() {
+        // Use String.format to combine Policy info, the PolicyHolder's details, and the price
+        return String.format("Policy Number: %s\nProvider Name: %s\n%s\nPolicy Price: $%.2f",
+                this.policyNumber,
+                this.providerName,
+                this.policyHolder.toString(), // Calls the PolicyHolder's toString()
+                this.getPrice()); // Calculate and format the price
     }
 
     public static int getPolicyCount(){

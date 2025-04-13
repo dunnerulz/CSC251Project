@@ -6,18 +6,18 @@ public class PolicyHolder {
     private double height;
     private double weight;
 
+    // Replace the current toString() in PolicyHolder.java with this:
     @Override
-    public String toString(){
-         StringBuilder fields = new StringBuilder();
-         fields.append("Name: " + getFirstName());
-         fields.append("Last Name: " + getLastName());
-         fields.append("Age: " + getAge());
-         fields.append("Smoking Status: " + getSmokingStatus());
-         fields.append("Height: " + getHeight());
-         fields.append("Weight: " + getWeight());
-
-         return fields.toString();
-
+    public String toString() {
+        // Use String.format for precise layout matching the sample output
+        return String.format("Policyholder's First Name: %s\nPolicyholder's Last Name: %s\nPolicyholder's Age: %d\nPolicyholder's Smoking Status: %s\nPolicyholder's Height: %.1f inches\nPolicyholder's Weight: %.1f pounds\nPolicyholder's BMI: %.2f",
+                this.getFirstName(),
+                this.getLastName(),
+                this.getAge(),
+                this.getSmokingStatus(),
+                this.getHeight(),
+                this.getWeight(),
+                this.getBMI()); // Calculate BMI
     }
 
     public PolicyHolder()
