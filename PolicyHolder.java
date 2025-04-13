@@ -6,6 +6,20 @@ public class PolicyHolder {
     private double height;
     private double weight;
 
+    @Override
+    public String toString(){
+         StringBuilder fields = new StringBuilder();
+         fields.append("Name: " + getFirstName());
+         fields.append("Last Name: " + getLastName());
+         fields.append("Age: " + getAge());
+         fields.append("Smoking Status: " + getSmokingStatus());
+         fields.append("Height: " + getHeight());
+         fields.append("Weight: " + getWeight());
+
+         return fields.toString();
+
+    }
+
     public PolicyHolder()
     {
         FirstName = "";

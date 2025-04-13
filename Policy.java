@@ -12,6 +12,16 @@ public class Policy
         providerName = "";
     }
 
+    @Override
+    public String toString(){
+        StringBuilder fields = new StringBuilder();
+        fields.append("Name: " + getPolicyNumber());
+        fields.append("Last Name: " + getProviderName());
+
+        return fields.toString();
+
+    }
+
     /**
      Constructor that accepts arguments for each field
      @param pNumber The Policy number
