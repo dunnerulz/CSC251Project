@@ -4,6 +4,8 @@ public class Policy
     private String providerName;
     private static int policyCount = 0;
 
+    private PolicyHolder policyHolder;
+
     /**
      No-arg constructor that explicitly initializes all fields
      */
@@ -11,6 +13,7 @@ public class Policy
     {
         policyNumber = "";
         providerName = "";
+        this.policyHolder = new PolicyHolder();
         policyCount++;
     }
 
@@ -39,10 +42,16 @@ public class Policy
      @param h The Policyholder's height
      @param w The Policytholder's weight
      */
-    public Policy(String pNumber, String pName)
+
+    public PolicyHolder getPolicyHolder(){
+        return new PolicyHolder(this.policyHolder);
+    }
+
+    public Policy(String pNumber, String pName, PolicyHolder policyHolder)
     {
         policyNumber = pNumber;
         providerName = pName;
+        this.policyHolder = policyHolder;
         policyCount++;
     }
 
@@ -98,14 +107,14 @@ public class Policy
 
         double price = BASE_PRICE;
 
-        if(age > AGE_THRESHOLD)
+        if(policyHolder.getAge() > AGE_THRESHOLD)
             price += ADDITIONAL_FEE_AGE;
 
-        if(smokingStatus.equalsIgnoreCase("smoker"))
+        if(policyHolder.getSmokingStatus().equalsIgnoreCase("smoker"))
             price += ADDITIONAL_FEE_SMOKING;
 
-        if(getBMI() > BMI_THRESHOLD)
-            price += ((getBMI() - BMI_THRESHOLD) * ADDITIONAL_FEE_PER_BMI);
+        if(policyHolder.getBMI() > BMI_THRESHOLD)
+            price += ((policyHolder.getBMI() - BMI_THRESHOLD) * ADDITIONAL_FEE_PER_BMI);
 
         return price;
     }

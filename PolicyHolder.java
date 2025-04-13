@@ -40,6 +40,18 @@ public class PolicyHolder {
         weight = w;
     }
 
+    public PolicyHolder(PolicyHolder original) {
+        // Copy the values from the original object's fields
+        // to the new object's fields ('this')
+        this.FirstName = original.FirstName;
+        this.LastName = original.LastName;
+        this.age = original.age;
+        this.smokingStatus = original.smokingStatus;
+        this.height = original.height;
+        this.weight = original.weight;
+    }
+
+
     /**
      @return The Policyholder's first name
      */
