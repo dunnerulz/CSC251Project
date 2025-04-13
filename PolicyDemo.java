@@ -63,6 +63,8 @@ public class PolicyDemo
             if(policy.getPolicyHolder().getSmokingStatus().equalsIgnoreCase("smoker"))//keep track of the number of smokers
                 numSmokers++;
         }
+        
+        System.out.println("There were " + Policy.getPolicyCount() + " Policy objects created.");
 
         //print out the number of smokers and non-smokers
         System.out.println("The number of policies with a smoker is: " + numSmokers);
