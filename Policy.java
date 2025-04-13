@@ -2,6 +2,7 @@ public class Policy
 {  //fields
     private String policyNumber;
     private String providerName;
+    private static int policyCount = 0;
 
     /**
      No-arg constructor that explicitly initializes all fields
@@ -10,6 +11,7 @@ public class Policy
     {
         policyNumber = "";
         providerName = "";
+        policyCount++;
     }
 
     @Override
@@ -20,6 +22,10 @@ public class Policy
 
         return fields.toString();
 
+    }
+
+    public static int getPolicyCount(){
+        return policyCount;
     }
 
     /**
@@ -37,6 +43,7 @@ public class Policy
     {
         policyNumber = pNumber;
         providerName = pName;
+        policyCount++;
     }
 
     //getters//
